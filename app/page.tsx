@@ -80,21 +80,9 @@ export default function Component() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Header */}
       <header className="container mx-auto px-4 py-6">
-        <div className="flex justify-between items-center">
-          <div className="flex-1" />
-
-          <div className="flex justify-center flex-1">
-            <Image
-              src="/logo.png"
-              alt="Página 128"
-              width={400}
-              height={120}
-              className="h-16 w-auto"
-            />
-          </div>
-
-          {/* Language Selector */}
-          <div className="flex-1 flex justify-end">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0">
+          {/* Language Selector - Top on mobile, right on desktop */}
+          <div className="flex justify-center md:justify-end md:flex-1 md:order-3">
             <div className="flex items-center gap-2 bg-white rounded-full p-1 shadow-sm border">
               <Globe className="w-4 h-4 text-slate-500 ml-2" />
               <button
@@ -118,6 +106,20 @@ export default function Component() {
                 ESP
               </button>
             </div>
+          </div>
+
+          {/* Desktop spacer */}
+          <div className="hidden md:block md:flex-1" />
+
+          {/* Logo - Below language selector on mobile, center on desktop */}
+          <div className="flex justify-center md:flex-1 md:order-2">
+            <Image
+              src="/logo.png"
+              alt="Página 128"
+              width={600}
+              height={220}
+              className="w-72 sm:w-80 md:w-auto md:h-24 h-auto max-w-full"
+            />
           </div>
         </div>
       </header>
